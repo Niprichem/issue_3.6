@@ -3,16 +3,18 @@ class HomeAnimal(object):
     life_interval = 0
     position = 0
     name = ''
-    speed = 0
+    speed = 0   # km/h
     appearance = ''
+    flying = False
 
-    def __init__(self, future_food, life_interval, position, name, speed, appearance):
+    def __init__(self, future_food, life_interval, position, name, speed, appearance, flying):
         self.future_food = future_food
         self.life_interval = life_interval
         self.position = position
         self.name = name
         self.speed = speed
         self.appearance = appearance
+        self.flying = flying
 
     def __repr__(self):
         return self.name
@@ -59,13 +61,7 @@ class Animal(HomeAnimal):
 
 
 class Bird(HomeAnimal):
-    flying = False
-
-    def get_flying(self):
-        return self.flying
-
-    def set_flying(self, flying):
-        self.flying = flying
+    pass
 
 
 class Cow(Animal):
@@ -94,3 +90,21 @@ class Chicken(Bird):
 
 class Geese(Bird):
     pass
+
+
+def main():
+    all = dict(
+        duck=Duck(True, 3, 0, 'e2e4', 0, '', True),
+        chicken=Chicken(True, 2, 0, 'coco', 0, '', False),
+        geese=Geese(True, 3, 0, 'gaga', 0, '', False),
+        pig=Pig(True, 5, 0, 'MrPig', 0, '', False),
+        sheep=Sheep(True, 6, 0, 'MisSheep', 0, '', False),
+        goats=Goats(True, 6, 0, 'MisGoats', 0, '', False),
+        cow=Cow(True, 5, 0, 'Muuu', 0, '', False),
+    )
+    for val in all.values():
+        print(str(val))
+
+
+if __name__ == "__main__":
+    main()
